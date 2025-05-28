@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resim Galerisi - Batman Üniversitesi</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand, .nav-link {
+      color: white !important;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffd700 !important;
+      transform: scale(1.05);
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 80px 0 40px;
+    }
+
+    .gallery-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      color: white;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover .card-img-top {
+      transform: scale(1.1);
+    }
+
+    .badge-custom {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 12px;
+    }
+
+    .col-custom {
+      flex: 0 0 20%;
+      max-width: 20%;
+      padding: 0 0.5rem;
+    }
+
+    @media (max-width: 992px) {
+      .col-custom {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .col-custom {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .col-custom {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    .bg-section {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(5px);
+      color: white;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🏠 Ana Sayfa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link active" href="B.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="C.html">Slayt Gösterisi</a></li>
+          <li class="nav-item"><a class="nav-link" href="D.html">Form</a></li>
+          <li class="nav-item"><a class="nav-link" href="E.html">Veri Tablosu</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="display-4 mb-3"><i class="fas fa-images"></i> Resim Galerisi</h1>
+      <p class="lead">Manzara fotoğraflarından oluşan şık bir koleksiyon</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="pb-5">
+    <div class="container">
+      <div class="row flex-wrap d-flex justify-content-center gy-4">
+        <!-- 5 Adet Kart -->
+        <div class="col-custom">
+          <div class="card gallery-card text-white h-100">
+       <img src="https://picsum.photos/id/1018/1200/500" alt="Dağ" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-mountain"></i> Dağ Manzarası</h5>
+              <p class="card-text">Zirvelerin heybetli görüntüsü.</p>
+              <span class="badge badge-custom">Doğa</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-custom">
+          <div class="card gallery-card text-white h-100">
+        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d" class="card-img-top" alt="Orman">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-tree"></i> Orman Manzarası</h5>
+              <p class="card-text">Doğanın içindeki huzur.</p>
+              <span class="badge badge-custom">Orman</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-custom">
+          <div class="card gallery-card text-white h-100">
+         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="card-img-top" alt="Deniz">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-water"></i> Deniz Manzarası</h5>
+              <p class="card-text">Mavi sonsuzlukta bir an.</p>
+              <span class="badge badge-custom">Deniz</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-custom">
+          <div class="card gallery-card text-white h-100">
+     <img src="https://picsum.photos/id/1016/1200/500" alt="Çöl"class="card-img-top">
+
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-sun"></i> Çöl Manzarası</h5>
+              <p class="card-text">Altın kumlar arasında yolculuk.</p>
+              <span class="badge badge-custom">Çöl</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-custom">
+          <div class="card gallery-card text-white h-100">
+      <img src="https://images.pexels.com/photos/29352929/pexels-photo-29352929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=1200" alt="Işıklar Altında Şehir">
+
+
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-city"></i> Şehir Manzarası</h5>
+              <p class="card-text">Modern hayatın ışıkları.</p>
+              <span class="badge badge-custom">Şehir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section class="py-4 bg-section">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3">
+          <h3>5</h3>
+          <p class="text-light">Toplam Resim</p>
+        </div>
+        <div class="col-md-3">
+          <h3>5</h3>
+          <p class="text-light">Kategori</p>
+        </div>
+        <div class="col-md-3">
+          <h3>40x50</h3>
+          <p class="text-light">Boyut</p>
+        </div>
+        <div class="col-md-3">
+          <h3>HD</h3>
+          <p class="text-light">Kalite</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-light text-center py-4">
+    <div class="container">
+      <p>&copy; 2024 Batman Üniversitesi - Bilgisayar Mühendisliği Bölümü</p>
+   
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

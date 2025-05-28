@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Çalışan Veri Tablosu</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: white !important;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffd700 !important;
+      transform: scale(1.05);
+    }
+
+    .table-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .table-title {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 20px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .table thead th {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      border: none;
+    }
+
+    .table tbody td {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    .table tbody tr:hover {
+      background-color: rgba(102, 126, 234, 0.1);
+      transform: scale(1.01);
+    }
+
+    .row-number {
+      background: linear-gradient(45deg, #e74c3c, #f39c12);
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .stats-card {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🏠 Ana Sayfa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="B.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="C.html">Slayt Gösterisi</a></li>
+          <li class="nav-item"><a class="nav-link" href="D.html">Form</a></li>
+          <li class="nav-item"><a class="nav-link active" href="E.html">Veri Tablosu</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Statistics -->
+  <div class="container mt-4">
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="stats-card text-center">
+          <div class="stat-number" id="totalEmployees">0</div>
+          <div class="stat-label">Toplam Çalışan</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stats-card text-center">
+          <div class="stat-number" id="avgSalary">₺0</div>
+          <div class="stat-label">Ortalama Maaş</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stats-card text-center">
+          <div class="stat-number" id="maxSalary">₺0</div>
+          <div class="stat-label">En Yüksek Maaş</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="row">
+      <div class="col-12">
+        <div class="table-container">
+          <h2 class="table-title text-center">
+            <i class="fas fa-users me-2"></i>Çalışan Bilgileri Tablosu
+          </h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col"><i class="fas fa-user me-1"></i>Ad</th>
+                  <th scope="col"><i class="fas fa-user-tag me-1"></i>Soyad</th>
+                  <th scope="col"><i class="fas fa-money-bill-wave me-1"></i>Maaş</th>
+                </tr>
+              </thead>
+              <tbody id="employeeTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 mt-5">
+    <div class="container">
+      <p>&copy; 2024 Batman Üniversitesi - Bilgisayar Mühendisliği Bölümü</p>
+      
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const employees = [
+      {firstName: "Ahmet", lastName: "Yılmaz", salary: 15000},
+      {firstName: "Mehmet", lastName: "Kaya", salary: 18000},
+      {firstName: "Ayşe", lastName: "Demir", salary: 22000},
+      {firstName: "Fatma", lastName: "Şahin", salary: 16500},
+      {firstName: "Ali", lastName: "Çelik", salary: 19000},
+      {firstName: "Zeynep", lastName: "Arslan", salary: 21000},
+      {firstName: "Murat", lastName: "Özkan", salary: 17800},
+      {firstName: "Elif", lastName: "Polat", salary: 20500},
+      {firstName: "Emre", lastName: "Güler", salary: 24000},
+      {firstName: "Selin", lastName: "Aktaş", salary: 16000},
+      {firstName: "Burak", lastName: "Koç", salary: 23500},
+      {firstName: "Deniz", lastName: "Erdoğan", salary: 18500},
+      {firstName: "Canan", lastName: "Yıldırım", salary: 25000},
+      {firstName: "Kemal", lastName: "Aydın", salary: 17200},
+      {firstName: "Gül", lastName: "Taş", salary: 19800},
+      {firstName: "Okan", lastName: "Kurt", salary: 21500},
+      {firstName: "Pınar", lastName: "Çiftçi", salary: 16800},
+      {firstName: "Tolga", lastName: "Balcı", salary: 22800},
+      {firstName: "Aslı", lastName: "Demirtaş", salary: 18200},
+      {firstName: "Cem", lastName: "Öztürk", salary: 26000},
+      {firstName: "Nalan", lastName: "Güneş", salary: 17500},
+      {firstName: "Serkan", lastName: "Mutlu", salary: 20000},
+      {firstName: "Ebru", lastName: "Karaca", salary: 19200},
+      {firstName: "Özgür", lastName: "Işık", salary: 23000},
+      {firstName: "Gamze", lastName: "Akay", salary: 17000},
+      {firstName: "Hakan", lastName: "Çakır", salary: 24500},
+      {firstName: "İrem", lastName: "Duman", salary: 18800},
+      {firstName: "Onur", lastName: "Kılıç", salary: 21800},
+      {firstName: "Seda", lastName: "Bayram", salary: 19500},
+      {firstName: "Volkan", lastName: "Aslan", salary: 27000}
+    ];
+
+    function populateTable() {
+      const tbody = document.getElementById("employeeTableBody");
+      tbody.innerHTML = employees.map((emp, index) => `
+        <tr>
+          <td class="row-number">${index + 1}</td>
+          <td>${emp.firstName}</td>
+          <td>${emp.lastName}</td>
+          <td class="text-success fw-bold">₺${emp.salary.toLocaleString('tr-TR')}</td>
+        </tr>
+      `).join('');
+    }
+
+    function calculateStats() {
+      const total = employees.length;
+      const totalSalary = employees.reduce((sum, e) => sum + e.salary, 0);
+      const avg = Math.round(totalSalary / total);
+      const max = Math.max(...employees.map(e => e.salary));
+
+      document.getElementById("totalEmployees").textContent = total;
+      document.getElementById("avgSalary").textContent = `₺${avg.toLocaleString('tr-TR')}`;
+      document.getElementById("maxSalary").textContent = `₺${max.toLocaleString('tr-TR')}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      populateTable();
+      calculateStats();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slayt Gösterisi - Batman Üniversitesi</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: white !important;
+    }
+
+    .nav-link:hover {
+      color: #ffd700 !important;
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    .page-header {
+      padding: 60px 0;
+    }
+
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      bottom: 50px;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .slide-counter {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .btn-group .btn {
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: bold;
+    }
+
+    .slide-info {
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    .footer {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🏠 Ana Sayfa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="B.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link active" href="C.html">Slayt Gösterisi</a></li>
+          <li class="nav-item"><a class="nav-link" href="D.html">Form</a></li>
+          <li class="nav-item"><a class="nav-link" href="E.html">Veri Tablosu</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header text-center">
+    <div class="container">
+      <h1 class="display-4"><i class="fas fa-play-circle"></i> Slayt Gösterisi</h1>
+    </div>
+  </header>
+
+  <div class="container position-relative">
+    <div class="slide-counter">
+      <span id="currentSlide">1</span> / <span id="totalSlides">5</span>
+    </div>
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://picsum.photos/id/1018/1200/500" alt="Dağ">
+          <div class="carousel-caption">
+            <h5>Muhteşem Dağ Zirvesi</h5>
+            <p>Doğanın mükemmel zirvesi.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/id/1020/1200/500" alt="Orman">
+          <div class="carousel-caption">
+            <h5>Derin Ormanlar</h5>
+            <p>Doğanın kalbinde huzur ve sessizlik.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/id/1015/1200/500" alt="Deniz">
+          <div class="carousel-caption">
+            <h5>Mavi Sonsuzluk</h5>
+            <p>Okyanusun kucaklayıcı gücü ve dinginliği.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://picsum.photos/id/1016/1200/500" alt="Çöl">
+          <div class="carousel-caption">
+            <h5>Altın Kumlar</h5>
+            <p>Çöl rüzgarlarının şekillendirdiği sanat.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+         <img src="https://images.pexels.com/photos/29352929/pexels-photo-29352929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500&w=1200" alt="Işıklar Altında Şehir">
+          <div class="carousel-caption">
+            <h5>Gece Şehri</h5>
+            <p>Modern yaşamın ışıkları altında bir gece.</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Önceki</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Sonraki</span>
+      </button>
+    </div>
+
+    <div class="text-center mt-4">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-light" onclick="pauseSlideshow()">
+          <i class="fas fa-pause"></i> Duraklat
+        </button>
+        <button type="button" class="btn btn-outline-light" onclick="playSlideshow()">
+          <i class="fas fa-play"></i> Oynat
+        </button>
+        <button type="button" class="btn btn-outline-light" onclick="resetSlideshow()">
+          <i class="fas fa-redo"></i> Başa Dön
+        </button>
+      </div>
+    </div>
+
+    <div class="slide-info mt-4">
+      <div class="row">
+        <div class="col-md-8">
+          <h5 id="slideTitle">Muhteşem Dağ Zirvesi</h5>
+          <p id="slideDescription">Doğanın mükemmel zirvisi.</p>
+        </div>
+        <div class="col-md-4">
+          <p><i class="fas fa-camera"></i> 1200x500 px</p>
+          <p><i class="fas fa-clock"></i> 4 saniye</p>
+          <p><i class="fas fa-eye"></i> Görüntülenme: <span id="viewCount">1</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2024 Batman Üniversitesi - Bilgisayar Mühendisliği</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let carousel;
+    let viewCount = 1;
+
+    const titles = [
+      "Muhteşem Dağ Zirvesi",
+      "Derin Ormanlar",
+      "Mavi Sonsuzluk",
+      "Altın Kumlar",
+      "Gece Şehri"
+    ];
+
+    const descriptions = [
+      "Doğanın mükemmel zirvesi.",
+      "Doğanın kalbinde huzur ve sessizlik.",
+      "Okyanusun kucaklayıcı gücü ve dinginliği.",
+      "Çöl rüzgarlarının şekillendirdiği sanat.",
+      "Modern yaşamın ışıkları altında bir gece."
+    ];
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const carouselElement = document.getElementById('carouselExample');
+      carousel = new bootstrap.Carousel(carouselElement, {
+        interval: 4000,
+        ride: 'carousel'
+      });
+
+      carouselElement.addEventListener('slide.bs.carousel', function (event) {
+        const index = event.to;
+        document.getElementById('currentSlide').textContent = index + 1;
+        document.getElementById('slideTitle').textContent = titles[index];
+        document.getElementById('slideDescription').textContent = descriptions[index];
+        viewCount++;
+        document.getElementById('viewCount').textContent = viewCount;
+      });
+    });
+
+    function pauseSlideshow() {
+      carousel.pause();
+    }
+
+    function playSlideshow() {
+      carousel.cycle();
+    }
+
+    function resetSlideshow() {
+      carousel.to(0);
+      viewCount = 1;
+      document.getElementById('currentSlide').textContent = '1';
+      document.getElementById('slideTitle').textContent = titles[0];
+      document.getElementById('slideDescription').textContent = descriptions[0];
+      document.getElementById('viewCount').textContent = viewCount;
+    }
+  </script>
+</body>
+</html>
